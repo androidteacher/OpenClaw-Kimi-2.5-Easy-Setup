@@ -88,6 +88,10 @@ docker restart openclaw
 ---
 
 ## Step 4: Approve the Pairing Request
+Verify your openclaw installation has a pairing `CODE` that needs to be verified.
+```bash
+docker exec -it openclaw openclaw pairing list telegram
+```
 
 Approve your device using the `CODE` from the pairing list output:
 
