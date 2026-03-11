@@ -63,7 +63,7 @@
       "botToken": "Insert_Telegram_Bot_Token",
       "groupPolicy": "allowlist",
       "groupAllowFrom": [
-        -INSERT_YOUR_USER_ID_HERE_FROM_TELEGRAM
+        -123456789
       ],
       "dmPolicy": "pairing",
       "streaming": "partial"

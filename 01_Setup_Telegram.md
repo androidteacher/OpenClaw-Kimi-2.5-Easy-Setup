@@ -52,40 +52,36 @@ docker restart openclaw
 
 ---
 
-## Step 3: Send a Message to Your Bot & Find Your User ID
+## Step 3: Send a Message to Your Bot & Enter Your User ID
 
 1. Open Telegram and find your new bot by its username.
+
 2. Send it any message (e.g., `hello`).
-3. OpenClaw will register a pairing request. List pending requests to see it:
 
-```bash
-docker exec -it openclaw openclaw pairing list telegram
-```
+3. **The bot will reply with your Telegram User ID.** It will look something like this:
+   ```
+   Your Telegram User ID is: 123456789
+   ```
 
-The output will include a pairing entry that contains your **Telegram User ID** — a number that identifies your account. It will look something like this:
+4. This step is critical — without your User ID entered correctly in the config, the bot will not respond to you.
 
-```
-Pending pairing requests:
-  [1] User ID: 123456789  |  Code: ABC123  |  Device: MyPhone
-```
-
-4. Copy your **User ID** from this output.
-
-5. Open `data/openclaw.json` and find the `groupAllowFrom` field:
+   Open `data/openclaw.json` and find the `groupAllowFrom` field:
 
    ```json
    "groupAllowFrom": [
-     -INSERT_YOUR_USER_ID_HERE_FROM_TELEGRAM
+     -123456789
    ],
    ```
 
-   Replace the entire placeholder (including the `-` sign) with your User ID:
+   Replace `-123456789` with your actual User ID, **keeping the minus sign (`-`) in front of it**:
 
    ```json
    "groupAllowFrom": [
-     123456789
+     -987654321
    ],
    ```
+
+   > **Important:** The value must be a negative number — your ID prefixed with `-`. Do not wrap it in quotes. If this is entered incorrectly, the bot will silently ignore all of your messages.
 
    Save the file.
 
